@@ -1,6 +1,7 @@
 package co.com.sofka.utils;
 
-import co.com.sofka.domain.bicycle.values.ContactDetail;
+import co.com.sofka.domain.bicycle.PropertyCard;
+import co.com.sofka.domain.bicycle.values.*;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.performance.values.CommissionedArea;
 import co.com.sofka.domain.performance.values.EmergencyData;
@@ -61,4 +62,12 @@ public class Values {
             "NamePAINTERStatic", "phonePAINTERStatic", "PAINTER"
     );
     public static final Technique TECHNIQUE = new Technique("BRUSH");
+
+
+    public static final Order ORDER_CLIENT = new Order(
+            ClientId.from("client_static"),
+            PropertyCardId.from("propertycardId_static"),
+            new ClientRequest(48D, "STATICGREEN", "MTB"),
+            true
+    );
 }

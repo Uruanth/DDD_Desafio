@@ -1,6 +1,8 @@
 package co.com.sofka.utils;
 
 import co.com.sofka.domain.bicycle.values.ClientId;
+import co.com.sofka.domain.bicycle.values.ClientRequest;
+import co.com.sofka.domain.bicycle.values.PropertyCardId;
 import co.com.sofka.domain.events.*;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.performance.values.EngineerId;
@@ -10,6 +12,7 @@ import co.com.sofka.domain.performance.values.QAId;
 import co.com.sofka.domain.team.values.MechanicId;
 import co.com.sofka.domain.team.values.PainterId;
 import co.com.sofka.domain.team.values.SupervisorId;
+import co.com.sofka.domain.team.values.TeamId;
 
 public class Aggregates {
 
@@ -74,4 +77,11 @@ public class Aggregates {
             PerformanceId.from("TestPerformanceId")
     );
 
+    public static final DomainEvent ASSIGN_TEAM = new AssignedTeam(TeamId.from("teamAssigned_static"));
+
+    public static final DomainEvent CREATE_ORDER_CLIENT = new CreatedOrder(
+            ClientId.from("client_static"),
+            PropertyCardId.from("propertycardId_static"),
+            new ClientRequest(48D, "STATICGREEN", "MTB")
+    );
 }

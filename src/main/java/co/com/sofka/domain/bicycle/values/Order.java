@@ -18,6 +18,16 @@ public class Order implements ValueObject<Order.Properties> {
     }
 
     @Override
+    public String toString() {
+        return "Order{" +
+                "clientId=" + clientId +
+                ", propertyCardId=" + propertyCardId +
+                ", specifications=" + specifications +
+                ", status=" + status +
+                '}';
+    }
+
+    @Override
     public Properties value() {
         return new Properties() {
             @Override
@@ -40,6 +50,29 @@ public class Order implements ValueObject<Order.Properties> {
                 return status;
             }
         };
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (status != order.status) return false;
+        if (clientId != null ? !clientId.equals(order.clientId) : order.clientId != null) return false;
+        if (propertyCardId != null ? !propertyCardId.equals(order.propertyCardId) : order.propertyCardId != null)
+            return false;
+        return specifications != null ? specifications.equals(order.specifications) : order.specifications == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = clientId != null ? clientId.hashCode() : 0;
+        result = 31 * result + (propertyCardId != null ? propertyCardId.hashCode() : 0);
+        result = 31 * result + (specifications != null ? specifications.hashCode() : 0);
+        result = 31 * result + (status ? 1 : 0);
+        return result;
     }
 
     public interface Properties{

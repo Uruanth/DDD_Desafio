@@ -1,17 +1,19 @@
 package co.com.sofka.domain.events;
 
 import co.com.sofka.domain.bicycle.values.ClientId;
+import co.com.sofka.domain.bicycle.values.Order;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class CanceledOrder extends DomainEvent {
-    private final ClientId clientId;
+    private final Order order;
 
-    public ClientId getClientId() {
-        return clientId;
+
+    public CanceledOrder(Order order) {
+        super("sofka.bicycle.canceledOrder");
+        this.order = order;
     }
 
-    public CanceledOrder(ClientId clientId) {
-        super("sofka.bicycle.canceledOrder");
-        this.clientId = clientId;
+    public Order getOrder() {
+        return order;
     }
 }

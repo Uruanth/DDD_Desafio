@@ -55,7 +55,7 @@ public class BicycleChange extends EventChange {
             bicycle.client.orders = bicycle.client.orders
                     .stream()
                     .map(orden -> {
-                        if (orden.value().clientId().equals(event.getClientId()))
+                        if (orden.equals(event.getOrder()))
                             return new Order(
                                     orden.value().clientId(),
                                     orden.value().propertyCardId(),

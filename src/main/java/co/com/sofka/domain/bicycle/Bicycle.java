@@ -78,9 +78,9 @@ public class Bicycle extends AggregateEvent<BicycleId> {
         appendChange(new UpdatedPropertyCard(nameOwner, color)).apply();
     }
 
-    public void cancelOrder(ClientId clientId){
-        Objects.requireNonNull(clientId, "client cannot be null");
-        appendChange(new CanceledOrder(clientId)).apply();
+    public void cancelOrder(Order order){
+        Objects.requireNonNull(order, "order cannot be null");
+        appendChange(new CanceledOrder(order)).apply();
 
     }
 

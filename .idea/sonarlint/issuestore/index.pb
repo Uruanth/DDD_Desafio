@@ -9,8 +9,6 @@ y
 Isrc/main/java/co/com/sofka/domain/commands/UpdatePropertyCardCommand.java,1\b\1b9ca6ad9c071873aa506f4073f580e2bf6382c8
 t
 Dsrc/main/java/co/com/sofka/domain/commands/SaveMachinaryCommand.java,7\8\782a5a5960b71f30b250adf746ad8ca22a8d6131
-t
-Dsrc/main/java/co/com/sofka/domain/commands/CancelAnOrderCommand.java,3\e\3e1cb1e033a3b83844370a20a8485879d75305cc
 j
 :src/main/java/co/com/sofka/domain/events/ChangedOrder.java,4\e\4ecbd8b611298d878ab6b1b7fbaaaadc0bef24b6
 r
@@ -21,8 +19,6 @@ x
 Hsrc/main/java/co/com/sofka/domain/bicycle/values/BikeSpecifications.java,9\7\978ec71e7808b409441c391183e7d418754ebfc6
 p
 @src/main/java/co/com/sofka/domain/bicycle/values/EndorsedBy.java,c\8\c86763b9b9f647d697f2d066fc7f31aba3191e92
-k
-;src/main/java/co/com/sofka/domain/bicycle/values/Order.java,7\8\7842acfcc561ce6dfa1ad756e48847efd6b8d9df
 l
 <src/main/java/co/com/sofka/domain/team/values/PaintType.java,1\4\140bc296811fd0730bd46d5efb7a204f3a1332c0
 r
@@ -51,10 +47,6 @@ r
 Bsrc/main/java/co/com/sofka/domain/commands/CreateOrderCommand.java,2\7\274e56ca90041db508dc6c67857c1186b2ab4644
 l
 <src/main/java/co/com/sofka/domain/events/BicycleCreated.java,5\a\5a192d2493bfb82fc5f4f537dfd692115a6a1a7e
-e
-5src/main/java/co/com/sofka/domain/bicycle/Client.java,c\1\c1cf580d6db65f0e01f58783f5c4b67c997cdc94
-j
-:src/main/java/co/com/sofka/domain/events/CreatedOrder.java,4\8\48197df6de4a156b075ce335b30a104faa5f4571
 v
 Fsrc/main/java/co/com/sofka/domain/performance/values/DTOReference.java,e\d\edcd4dea06293e118653d9bf9cbcbed713412210
 h
@@ -101,12 +93,8 @@ u
 Esrc/main/java/co/com/sofka/domain/commands/ApproveProductCommand.java,e\8\e88aaa80fda286327e83c460c830d26af5c692ff
 l
 <src/main/java/co/com/sofka/usecase/CreateBicycleUsecase.java,d\1\d119fac4768aaaa306a22592bfce342b4e0df10a
-f
-6src/main/java/co/com/sofka/domain/bicycle/Bicycle.java,9\4\941d8ef85e984d95aea902230a99a79dd5d12a0b
 s
 Csrc/main/java/co/com/sofka/domain/performance/values/Insurance.java,5\2\527dadc5c27fe10123518b533b48f4c5cda121a5
-l
-<src/main/java/co/com/sofka/domain/bicycle/BicycleChange.java,f\d\fd3e6c0817f2ba63530f7e863cd859c74de171c5
 u
 Esrc/main/java/co/com/sofka/domain/commands/AssignEngineerCommand.java,0\6\06b602cf5bd62164525106ac8bc96eaf7f904c15
 n
@@ -129,10 +117,6 @@ m
 =src/main/java/co/com/sofka/usecase/AssignMechanicUsecase.java,2\0\2063fb59da9ea92a13d9871665497df903d6c662
 t
 Dsrc/main/java/co/com/sofka/domain/commands/AssignPainterCommand.java,7\1\7149161daa9648575bdccc4852bc336620bd41ac
-`
-0src/main/java/co/com/sofka/domain/team/Team.java,3\b\3b8e692e26110dc469b636b908a74bbbbfd3ba19
-j
-:src/main/java/co/com/sofka/usecase/CreateOrderUsecase.java,3\7\3738b0c59e17c3306ff5e250c6d7093dff26f809
 p
 @src/main/java/co/com/sofka/usecase/AssignPerformanceUsecase.java,4\d\4d4ed5c4d4b8d0eee7dabcad8a3fe5fd8c8ddf07
 x
