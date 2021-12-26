@@ -17,8 +17,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_PERFORMANCE;
+import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -89,11 +92,9 @@ class CreateOrderUsecaseTest {
     }
 
     private List<DomainEvent> eventsMock() {
-        ClientId clientId = ClientId.from("yyyy");
-        ContactDetail contactDetail = new ContactDetail("Dairon", "3113294143", "carrera 10");
-        return List.of(
-                new BicycleCreated(clientId, contactDetail)
-        );
+        var event = new ArrayList<DomainEvent>();
+        event.add(NEW_BICYCLE);
+        return event;
     }
 
 }

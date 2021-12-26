@@ -20,6 +20,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_QA;
+import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -88,32 +90,16 @@ class AssignQAUsecaseTest {
         Mockito.verify(repository).getEventsBy("pppp");
     }
 
-    private List<DomainEvent> eventsError() {
-        var events = events();
-        RequestPerformance order = new RequestPerformance(45D, 60D, 4D);
-        QAId qaId = QAId.from("testQA");
-        PersonalInformation personalInformation = new PersonalInformation("nameQATest",
-                "77996315", "otra casa Test");
-        events.add(new AssignedQA(
-                qaId, personalInformation, order
-        ));
-        return events;
-    }
-
 
     private List<DomainEvent> events() {
         var events = new ArrayList<DomainEvent>();
-        PersonalInformation personalInformation = new PersonalInformation("namePilot",
-                "77874235", "calle apto 23");
-        RequestPerformance order = new RequestPerformance(78D, 33D, 8D);
-        Insurance insurance = new Insurance("Sura");
-        EmergencyData emergencyData = new EmergencyData("77892225",
-                "Martha", "Daugther");
-
-        events.add(new CreatedPerformance(PilotId.from("pilotId"), personalInformation,
-                order, insurance, emergencyData));
-
+        events.add(NEW_PERFORMANCE);
         return events;
     }
 
+    private List<DomainEvent> eventsError() {
+        var events = events();
+         events.add(ASSIGN_QA);
+        return events;
+    }
 }

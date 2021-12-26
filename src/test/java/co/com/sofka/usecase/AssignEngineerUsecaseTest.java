@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_ENGINNER;
+import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -94,33 +96,14 @@ class AssignEngineerUsecaseTest {
 
     private List<DomainEvent> eventPerformance() {
         var events = new ArrayList<DomainEvent>();
-        PersonalInformation personalInformation = new PersonalInformation("namePilot", "77874235", "calle apto 23");
-        RequestPerformance order = new RequestPerformance(78D, 33D,8D);
-        Insurance insurance = new Insurance("Sura");
-        EmergencyData emergencyData = new EmergencyData("77892225", "Martha", "Daugther");
-
-        events.add(new CreatedPerformance(PilotId.from("pilotId"), personalInformation, order, insurance, emergencyData));
+        events.add(NEW_PERFORMANCE);
         return events;
 
     }
 
     private List<DomainEvent> eventPerformanceError() {
-        var events = new ArrayList<DomainEvent>();
-        PersonalInformation personalInformation = new PersonalInformation("namePilot", "77874235", "calle apto 23");
-        RequestPerformance order = new RequestPerformance(78D, 33D,8D);
-        Insurance insurance = new Insurance("Sura");
-        EmergencyData emergencyData = new EmergencyData("77892225", "Martha", "Daugther");
-
-        events.add(new CreatedPerformance(PilotId.from("pilotId"), personalInformation, order, insurance, emergencyData));
-
-        EngineerId enginnerId = EngineerId.from("testId");
-        PersonalInformation personalInformationEngineer = new PersonalInformation(
-                "Dairon", "3666561154", "engineer1"
-        );
-        CommissionedArea commissionedArea = new CommissionedArea("Cali", Set.of("qa", "speed"));
-
-        events.add(new AssignedEnginner(enginnerId, personalInformationEngineer, commissionedArea, order));
-
+        var events = eventPerformance();
+        events.add(ASSIGN_ENGINNER);
         return events;
 
     }

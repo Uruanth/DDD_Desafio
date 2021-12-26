@@ -18,6 +18,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
+import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
+import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -57,10 +59,7 @@ class CreatePropertyCardUsecaseTest {
 
     private List<DomainEvent> eventsMock() {
         var events = new ArrayList<DomainEvent>();
-        events.add(new BicycleCreated(
-                ClientId.from("cccc"),
-                new ContactDetail("Alex", "5559874", "carrea 9")
-        ));
+        events.add(NEW_BICYCLE);
         return events;
     }
 

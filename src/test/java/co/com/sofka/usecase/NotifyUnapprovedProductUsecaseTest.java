@@ -4,8 +4,6 @@ import co.com.sofka.business.generic.ServiceBuilder;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.bicycle.values.BicycleId;
-import co.com.sofka.domain.bicycle.values.ClientId;
-import co.com.sofka.domain.events.ApprovedProduct;
 import co.com.sofka.domain.events.UnapprovedProduct;
 import co.com.sofka.domain.performance.values.EngineerId;
 import co.com.sofka.domain.performance.values.PilotId;
@@ -17,7 +15,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

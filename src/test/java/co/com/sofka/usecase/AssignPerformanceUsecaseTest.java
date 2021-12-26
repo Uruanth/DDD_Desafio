@@ -22,6 +22,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_PERFORMANCE;
+import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -79,19 +81,17 @@ class AssignPerformanceUsecaseTest {
         Mockito.verify(repository).getEventsBy("bbbb");
     }
 
-    private List<DomainEvent> eventsError() {
-        var event = events();
-        event.add(new AssignedPerformance(PerformanceId.from("TestPerformanceId")));
-        return event;
-    }
+
 
     private List<DomainEvent> events() {
-        ClientId clientId = ClientId.from("yyyy");
-        ContactDetail contactDetail = new ContactDetail("Dairon", "3113294143", "carrera 10");
-        var events = new ArrayList<DomainEvent>();
-        events.add(new BicycleCreated(clientId, contactDetail));
+       var events = new ArrayList<DomainEvent>();
+        events.add(NEW_BICYCLE);
         return events;
 
     }
-
+    private List<DomainEvent> eventsError() {
+        var event = events();
+        event.add(ASSIGN_PERFORMANCE);
+        return event;
+    }
 }

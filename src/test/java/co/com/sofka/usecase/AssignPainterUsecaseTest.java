@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_PAINTER;
+import static co.com.sofka.utils.Aggregates.NEW_TEAM;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -91,31 +93,14 @@ class AssignPainterUsecaseTest {
 
 
     private List<DomainEvent> eventsTeam() {
-        PersonalInformation personalInformation = new PersonalInformation("namePilot", "77874235", "calle apto 23");
         var events = new ArrayList<DomainEvent>();
-        events.add(new CreatedTeam(
-                SupervisorId.from("ssss"),
-                personalInformation,
-                new ResponsibleArea(4, 0)
-        ));
+        events.add(NEW_TEAM);
         return events;
     }
 
     private List<DomainEvent> eventsTeamError() {
         var events = eventsTeam();
-
-        PainterId painterId = PainterId.from("errorPainter");
-        PersonalInformation personalInformation = new PersonalInformation("Petter",
-                "99874453", "painter");
-        PaintType paintType = new PaintType("WET");
-        Technique technique = new Technique("AEROSOL");
-
-        events.add(new AssignedPainter(
-                painterId,
-                paintType,
-                personalInformation,
-                technique
-        ));
+        events.add(ASSIGN_PAINTER);
         return events;
     }
 }

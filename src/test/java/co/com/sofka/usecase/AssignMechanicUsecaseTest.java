@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static co.com.sofka.utils.Aggregates.ASSIGN_MECHANIC;
+import static co.com.sofka.utils.Aggregates.NEW_TEAM;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,7 +39,7 @@ class AssignMechanicUsecaseTest {
         BicycleType bicycleType = new BicycleType("16T", "CITY");
         PersonalInformation personalInformation = new PersonalInformation("Dairon",
                 "31153564", "mechanic");
-        var tools = Set.of(new Tool("screw", 3.5D),new Tool("sand", 100D));
+        var tools = Set.of(new Tool("screw", 3.5D), new Tool("sand", 100D));
 
         var command = new AssignMechanicCommand(teamId, mechanicId, bicycleType,
                 personalInformation, tools);
@@ -62,14 +64,14 @@ class AssignMechanicUsecaseTest {
     }
 
     @Test
-    void assignMechanicError(){
+    void assignMechanicError() {
         //Arrange
         TeamId teamId = TeamId.from("tttt");
         MechanicId mechanicId = MechanicId.from("mmmm");
         BicycleType bicycleType = new BicycleType("16T", "CITY");
         PersonalInformation personalInformation = new PersonalInformation("Dairon",
                 "31153564", "mechanic");
-        var tools = Set.of(new Tool("screw", 3.5D),new Tool("sand", 100D));
+        var tools = Set.of(new Tool("screw", 3.5D), new Tool("sand", 100D));
 
         var command = new AssignMechanicCommand(teamId, mechanicId, bicycleType,
                 personalInformation, tools);
@@ -80,7 +82,7 @@ class AssignMechanicUsecaseTest {
         usecase.addRepository(repository);
 
         //Act
-        var message = Assertions.assertThrows(BusinessException.class, ()->{
+        var message = Assertions.assertThrows(BusinessException.class, () -> {
             UseCaseHandler.getInstance()
                     .setIdentifyExecutor(teamId.value())
                     .syncExecutor(usecase, new RequestCommand<>(command))
@@ -94,32 +96,14 @@ class AssignMechanicUsecaseTest {
 
 
     private List<DomainEvent> eventTeam() {
-        PersonalInformation personalInformation = new PersonalInformation("namePilot", "77874235", "calle apto 23");
         var events = new ArrayList<DomainEvent>();
-        events.add(new CreatedTeam(
-                SupervisorId.from("ssss"),
-                personalInformation,
-                new ResponsibleArea(4, 0)
-        ));
+        events.add(NEW_TEAM);
         return events;
     }
 
-    private List<DomainEvent> eventTeamError(){
+    private List<DomainEvent> eventTeamError() {
         var events = eventTeam();
-
-        MechanicId mechanicId = MechanicId.from("errorMech");
-        BicycleType bicycleType = new BicycleType("18T", "ROAD");
-        PersonalInformation personalInformation = new PersonalInformation("Petter",
-                "99874453", "mechanic");
-        var tools = Set.of(new Tool("screw", 1.5D));
-
-
-        events.add(new AssignedMechanic(
-                mechanicId,
-                bicycleType,
-                personalInformation,
-                tools
-        ));
+        events.add(ASSIGN_MECHANIC);
         return events;
 
     }

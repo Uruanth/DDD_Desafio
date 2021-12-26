@@ -3,7 +3,6 @@ package co.com.sofka.usecase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.bicycle.values.BicycleId;
-import co.com.sofka.domain.bicycle.values.ClientRequest;
 import co.com.sofka.domain.bicycle.values.ClientId;
 import co.com.sofka.domain.bicycle.values.ContactDetail;
 import co.com.sofka.domain.commands.CreateBicycleCommand;

@@ -11,6 +11,7 @@ import co.com.sofka.domain.events.*;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.performance.values.*;
+import co.com.sofka.utils.Aggregates;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static co.com.sofka.utils.Aggregates.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,7 +53,7 @@ class ApproveOrderUsecaseTest {
 
         var event = (ApprovedProduct) events.getDomainEvents().get(0);
         Assertions.assertEquals(clientId, event.getClientId());
-        Assertions.assertEquals(EngineerId.from("engineer"), event.getEnginnerId());
+        Assertions.assertEquals(EngineerId.from("EnginnerStatic"), event.getEnginnerId());
 
     }
 
@@ -104,48 +106,15 @@ class ApproveOrderUsecaseTest {
         Assertions.assertEquals("Unassigned QA", message);
     }
 
-
     private List<DomainEvent> eventsMock() {
-        var personalInformationPilot = new PersonalInformation("Piloto1",
-                "311325564", "pilot");
 
-        var personalInformationEnginner = new PersonalInformation("Engineer1",
-                "99874662", "engineer");
-
-        var personalInformationQA = new PersonalInformation("QA1",
-                "33654721", "qa");
-
-        var emergencyDataPilot = new EmergencyData("998224122",
-                "Juan",
-                "Brother"
-        );
-
-        var order = new RequestPerformance(50D, 40D, 5D);
         var events = new ArrayList<DomainEvent>();
-
-        events.add(new CreatedPerformance(
-                PilotId.from("pilot"),
-                personalInformationPilot,
-                order,
-                new Insurance("SURA"),
-                emergencyDataPilot));
-
-        events.add(new AssignedEnginner(
-                EngineerId.from("engineer"),
-                personalInformationEnginner,
-                new CommissionedArea("bogota", Set.of("vigilar", "probar")),
-                order
-        ));
-
-        events.add(new AssignedQA(
-                QAId.from("qaId"),
-                personalInformationQA,
-                order
-        ));
-
+        events.add(NEW_PERFORMANCE);
+        events.add(ASSIGN_ENGINNER);
+        events.add(ASSIGN_QA);
         return events;
     }
-
+/*
     private List<DomainEvent> eventsMockUnapproved() {
         var personalInformationPilot = new PersonalInformation("Piloto1",
                 "311325564", "pilot");
@@ -186,31 +155,15 @@ class ApproveOrderUsecaseTest {
 
         return events;
     }
-
-
-    private List<DomainEvent> eventsUnassignedQA() {
-
-        var personalInformationPilot = new PersonalInformation("Piloto1",
-                "311325564", "pilot");
-
+*/
+    private List<DomainEvent> eventsMockUnapproved() {
         var personalInformationEnginner = new PersonalInformation("Engineer1",
                 "99874662", "engineer");
-
-        var emergencyDataPilot = new EmergencyData("998224122",
-                "Juan",
-                "Brother"
-        );
-
-        var order = new RequestPerformance(50D, 40D, 5D);
+        var order = new RequestPerformance(70D, 40D, 12D);
         var events = new ArrayList<DomainEvent>();
 
-        events.add(new CreatedPerformance(
-                PilotId.from("pilot"),
-                personalInformationPilot,
-                order,
-                new Insurance("SURA"),
-                emergencyDataPilot));
-
+        events.add(NEW_PERFORMANCE);
+        events.add(ASSIGN_QA);
         events.add(new AssignedEnginner(
                 EngineerId.from("engineer"),
                 personalInformationEnginner,
@@ -218,8 +171,13 @@ class ApproveOrderUsecaseTest {
                 order
         ));
 
-
         return events;
+    }
+    private List<DomainEvent> eventsUnassignedQA() {
+        var events = new ArrayList<DomainEvent>();
+        events.add(NEW_PERFORMANCE);
+        events.add(ASSIGN_ENGINNER);
+         return events;
     }
 
 }
