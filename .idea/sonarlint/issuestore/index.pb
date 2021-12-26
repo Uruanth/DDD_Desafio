@@ -61,8 +61,6 @@ h
 8src/main/java/co/com/sofka/domain/events/AssignedQA.java,f\2\f202ed2e2743d27f14a25214541301e1a11c6500
 p
 @src/main/java/co/com/sofka/domain/events/AssignedSupervisor.java,9\b\9b1255b7d3d9687aa4d22bc1e03182b27b8e048f
-o
-?src/main/java/co/com/sofka/domain/events/UnapprovedProduct.java,1\0\1062ec5d80e13bfcb8f9b226d2975f782894f651
 |
 Lsrc/main/java/co/com/sofka/domain/performance/values/RequestPerformance.java,9\5\95f6b0fbc34155493a86a5264faf58847a4d11b3
 n

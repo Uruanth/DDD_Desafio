@@ -6,6 +6,7 @@ import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.bicycle.values.ClientId;
 import co.com.sofka.domain.events.ApprovedProduct;
+import co.com.sofka.domain.events.UnapprovedProduct;
 import co.com.sofka.domain.performance.values.EngineerId;
 import co.com.sofka.domain.performance.values.PilotId;
 import co.com.sofka.domain.performance.values.QAId;
@@ -16,10 +17,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class NotifyApprovedProductUsecaseTest {
+class NotifyUnapprovedProductUsecaseTest {
 
     @Mock
     SendEmailService sendEmail;
@@ -28,22 +30,22 @@ class NotifyApprovedProductUsecaseTest {
     GetEmailService getEmailService;
 
     @Test
-    void notifyApprovedProduct() {
+    void notifyUnapprovedProduct() {
 
         BicycleId bicicleId = BicycleId.from("bbbb");
-        ClientId clientId = ClientId.from("cccc");
         EngineerId enginnerId = EngineerId.from("eeee");
         QAId qaId = QAId.from("qqqq");
         PilotId pilotId = PilotId.from("pppp");
 
-        var event = new ApprovedProduct(bicicleId, clientId, enginnerId, qaId, pilotId);
-        var usecase = new NotifyApprovedProductUsecase();
-        when(getEmailService.getEmailById(clientId)).thenReturn("correo cliente");
+        var event = new UnapprovedProduct(bicicleId, enginnerId, qaId, pilotId);
+        var usecase = new NotifyUnapprovedProductUsecase();
 
-        when(sendEmail.sendEmail(getEmailService.getEmailById(clientId),
-                clientId.value(),
+        when(getEmailService.getEmailById(enginnerId)).thenReturn("correo ingeniero");
+
+        when(sendEmail.sendEmail(getEmailService.getEmailById(enginnerId),
+                enginnerId.value(),
                 event.getAggregateName(),
-                "The engineer id: " + event.getEnginnerId() + ", approved his request"))
+                "The assigned product was not approved"))
                 .thenReturn(true);
 
         ServiceBuilder builder = new ServiceBuilder();
@@ -56,11 +58,12 @@ class NotifyApprovedProductUsecaseTest {
                 .orElseThrow();
 
 
-        verify(sendEmail).sendEmail(getEmailService.getEmailById(clientId),
-                clientId.value(),
+        verify(sendEmail).sendEmail(getEmailService.getEmailById(enginnerId),
+                enginnerId.value(),
                 event.getAggregateName(),
-                "The engineer id: " + event.getEnginnerId() + ", approved his request");
-        verify(getEmailService, times(3)).getEmailById(clientId);
+                "The assigned product was not approved");
+        verify(getEmailService, times(3)).getEmailById(enginnerId);
     }
+
 
 }
