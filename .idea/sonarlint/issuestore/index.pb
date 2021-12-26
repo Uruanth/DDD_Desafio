@@ -163,11 +163,5 @@ r
 Bsrc/main/java/co/com/sofka/domain/commands/ChangePilotCommand.java,7\0\70591b2c68c29558e3f4b2e01ba13531a8a3d282
 k
 ;src/main/java/co/com/sofka/usecase/ChangePilotUserCase.java,2\f\2fc0dbc35dede9bea237b92e523efe8d983337f0
-q
-Asrc/test/java/co/com/sofka/usecase/AssignMechanicUsecaseTest.java,f\4\f406c59f87683122c5804b660e42d195556be4b6
 p
 @src/test/java/co/com/sofka/usecase/AssignPainterUsecaseTest.java,0\8\08602228a3b18c8199c2be4e15da76fda50afa0d
-o
-?src/test/java/co/com/sofka/usecase/ChangePilotUserCaseTest.java,0\c\0c2d1e18d868e2af1e5069f79529a41100547e08
-q
-Asrc/test/java/co/com/sofka/usecase/AssignEngineerUsecaseTest.java,7\f\7f80a3a34b8e7dddd3653df1588319cf4bda67fb

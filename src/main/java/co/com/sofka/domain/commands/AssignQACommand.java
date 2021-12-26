@@ -3,19 +3,26 @@ package co.com.sofka.domain.commands;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.domain.generics.PersonalInformation;
+import co.com.sofka.domain.performance.values.PerformanceId;
+import co.com.sofka.domain.performance.values.QAId;
 import co.com.sofka.domain.performance.values.RequestPerformance;
 
 public class AssignQACommand extends Command {
 
-    private final BicycleId bicycleId;
+    private final PerformanceId performanceId;
+    private final QAId qaId;
     private final PersonalInformation personalInformation;
     private final RequestPerformance order;
 
-    public BicycleId getBicycleId() {
-        return bicycleId;
+    public PerformanceId getPerformanceId() {
+        return performanceId;
     }
 
-    public PersonalInformation getDatosPersonales() {
+    public QAId getQaId() {
+        return qaId;
+    }
+
+    public PersonalInformation getPersonalInformation() {
         return personalInformation;
     }
 
@@ -23,8 +30,9 @@ public class AssignQACommand extends Command {
         return order;
     }
 
-    public AssignQACommand(BicycleId bicycleId, PersonalInformation personalInformation, RequestPerformance order) {
-        this.bicycleId = bicycleId;
+    public AssignQACommand(PerformanceId performanceId, QAId qaId, PersonalInformation personalInformation, RequestPerformance order) {
+        this.performanceId = performanceId;
+        this.qaId = qaId;
         this.personalInformation = personalInformation;
         this.order = order;
     }
