@@ -5,8 +5,8 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.bicycle.values.Order;
-import co.com.sofka.domain.commands.CancelAnOrderCommand;
-import co.com.sofka.domain.events.CanceledOrder;
+import co.com.sofka.domain.bicycle.commands.CancelAnOrderCommand;
+import co.com.sofka.domain.bicycle.events.CanceledOrder;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.utils.Values;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,6 @@ import java.util.List;
 
 import static co.com.sofka.utils.Aggregates.CREATE_ORDER_CLIENT;
 import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

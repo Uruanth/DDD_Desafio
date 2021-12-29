@@ -4,8 +4,8 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.commands.ChangeEngineerCommand;
-import co.com.sofka.domain.events.ChangedEnginner;
+import co.com.sofka.domain.performance.commands.ChangeEngineerCommand;
+import co.com.sofka.domain.performance.events.ChangedEnginner;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.performance.values.CommissionedArea;
@@ -24,7 +24,6 @@ import java.util.Set;
 
 import static co.com.sofka.utils.Aggregates.ASSIGN_ENGINNER;
 import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ChangeEngineerUsecaseTest {

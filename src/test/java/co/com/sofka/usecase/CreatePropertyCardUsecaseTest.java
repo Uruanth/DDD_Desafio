@@ -3,24 +3,21 @@ package co.com.sofka.usecase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.bicycle.Bicycle;
 import co.com.sofka.domain.bicycle.values.*;
-import co.com.sofka.domain.commands.CreatePropertyCardCommand;
-import co.com.sofka.domain.events.BicycleCreated;
-import co.com.sofka.domain.events.CreatedPropertyCard;
+import co.com.sofka.domain.bicycle.commands.CreatePropertyCardCommand;
+import co.com.sofka.domain.bicycle.events.CreatedPropertyCard;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
-import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -53,6 +50,7 @@ class CreatePropertyCardUsecaseTest {
         Assertions.assertEquals(bicycleId, event.getIdentity());
         Assertions.assertEquals(bicycleCharacteristics, event.getBicycleCharacteristics());
         Assertions.assertEquals(endorsedBy, event.getEndorsedBy());
+        Mockito.verify(repository).getEventsBy("bbbb");
 
 
     }

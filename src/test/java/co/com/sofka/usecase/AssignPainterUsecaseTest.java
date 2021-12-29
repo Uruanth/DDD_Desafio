@@ -4,10 +4,8 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.commands.AssignPainterCommand;
-import co.com.sofka.domain.events.AssignedMechanic;
-import co.com.sofka.domain.events.AssignedPainter;
-import co.com.sofka.domain.events.CreatedTeam;
+import co.com.sofka.domain.team.commands.AssignPainterCommand;
+import co.com.sofka.domain.team.events.AssignedPainter;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.team.values.*;
@@ -20,11 +18,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static co.com.sofka.utils.Aggregates.ASSIGN_PAINTER;
 import static co.com.sofka.utils.Aggregates.NEW_TEAM;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

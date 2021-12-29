@@ -3,9 +3,8 @@ package co.com.sofka.usecase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.commands.ChangePilotCommand;
-import co.com.sofka.domain.events.ChangedPilot;
-import co.com.sofka.domain.events.CreatedPerformance;
+import co.com.sofka.domain.performance.commands.ChangePilotCommand;
+import co.com.sofka.domain.performance.events.ChangedPilot;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.performance.values.*;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static co.com.sofka.utils.Aggregates.NEW_PERFORMANCE;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

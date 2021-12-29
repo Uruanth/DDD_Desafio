@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.ServiceBuilder;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.bicycle.values.BicycleId;
-import co.com.sofka.domain.events.UnapprovedProduct;
+import co.com.sofka.domain.performance.events.UnapprovedProduct;
 import co.com.sofka.domain.performance.values.EngineerId;
 import co.com.sofka.domain.performance.values.PilotId;
 import co.com.sofka.domain.performance.values.QAId;

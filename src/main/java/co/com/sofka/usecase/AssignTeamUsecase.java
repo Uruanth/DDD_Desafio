@@ -5,7 +5,7 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.domain.bicycle.Bicycle;
-import co.com.sofka.domain.commands.AssignTeamCommand;
+import co.com.sofka.domain.bicycle.commands.AssignTeamCommand;
 
 public class AssignTeamUsecase extends UseCase<RequestCommand<AssignTeamCommand>, ResponseEvents> {
     @Override

@@ -4,9 +4,8 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.commands.AssignMechanicCommand;
-import co.com.sofka.domain.events.AssignedMechanic;
-import co.com.sofka.domain.events.CreatedTeam;
+import co.com.sofka.domain.team.commands.AssignMechanicCommand;
+import co.com.sofka.domain.team.events.AssignedMechanic;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.team.values.*;
@@ -14,6 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -59,6 +59,7 @@ class AssignMechanicUsecaseTest {
         var event = (AssignedMechanic) events.getDomainEvents().get(0);
         Assertions.assertEquals(mechanicId, event.getMechanicId());
         Assertions.assertEquals(tools, event.getTools());
+        Mockito.verify(repository).getEventsBy("tttt");
 
 
     }
@@ -92,6 +93,7 @@ class AssignMechanicUsecaseTest {
         //Assert
         Assertions.assertEquals("A mechanic is already assigned, try with 'ChangeMechanicCommand'",
                 message);
+        Mockito.verify(repository).getEventsBy("tttt");
     }
 
 

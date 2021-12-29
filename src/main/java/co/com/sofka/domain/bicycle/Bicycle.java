@@ -1,15 +1,14 @@
 package co.com.sofka.domain.bicycle;
 
+import co.com.sofka.domain.bicycle.events.*;
 import co.com.sofka.domain.bicycle.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.events.*;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.performance.values.*;
 import co.com.sofka.domain.team.values.TeamId;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Bicycle extends AggregateEvent<BicycleId> {
 
@@ -38,11 +37,6 @@ public class Bicycle extends AggregateEvent<BicycleId> {
         return  bicycle;
     }
 
-    public void assignClient(ClientId clientId, ContactDetail contactDetail){
-        Objects.requireNonNull(clientId, "clientId cannot be null");
-        Objects.requireNonNull(contactDetail, "contactDetail cannot be null");
-        appendChange(new AssignedClient( clientId,  contactDetail)).apply();
-    }
 
     public void assignPerformance(PerformanceId newPerformanceId){
         Objects.requireNonNull(newPerformanceId, "newPerformanceId cannot be null");

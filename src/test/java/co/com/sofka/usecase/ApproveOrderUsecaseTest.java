@@ -6,16 +6,18 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.bicycle.values.ClientId;
-import co.com.sofka.domain.commands.ApproveProductCommand;
-import co.com.sofka.domain.events.*;
+import co.com.sofka.domain.performance.commands.ApproveProductCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
+import co.com.sofka.domain.performance.events.ApprovedProduct;
+import co.com.sofka.domain.performance.events.AssignedEnginner;
+import co.com.sofka.domain.performance.events.UnapprovedProduct;
 import co.com.sofka.domain.performance.values.*;
-import co.com.sofka.utils.Aggregates;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ class ApproveOrderUsecaseTest {
         var event = (ApprovedProduct) events.getDomainEvents().get(0);
         Assertions.assertEquals(clientId, event.getClientId());
         Assertions.assertEquals(EngineerId.from("EnginnerStatic"), event.getEnginnerId());
+        Mockito.verify(repository).getEventsBy("pppp");
 
     }
 
@@ -79,6 +82,7 @@ class ApproveOrderUsecaseTest {
 
         var event = (UnapprovedProduct) events.getDomainEvents().get(0);
         Assertions.assertEquals( EngineerId.from("engineer"), event.getEnginnerId());
+        Mockito.verify(repository).getEventsBy("pppp");
 
     }
 
@@ -104,6 +108,7 @@ class ApproveOrderUsecaseTest {
         }).getMessage();
 
         Assertions.assertEquals("Unassigned QA", message);
+        Mockito.verify(repository).getEventsBy("pppp");
     }
 
     private List<DomainEvent> eventsMock() {

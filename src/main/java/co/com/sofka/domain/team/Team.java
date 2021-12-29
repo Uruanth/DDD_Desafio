@@ -2,7 +2,7 @@ package co.com.sofka.domain.team;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.events.*;
+import co.com.sofka.domain.team.events.*;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.team.values.*;
 

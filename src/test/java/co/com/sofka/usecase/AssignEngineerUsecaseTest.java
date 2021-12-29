@@ -4,9 +4,8 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.commands.AssignEngineerCommand;
-import co.com.sofka.domain.events.AssignedEnginner;
-import co.com.sofka.domain.events.CreatedPerformance;
+import co.com.sofka.domain.performance.commands.AssignEngineerCommand;
+import co.com.sofka.domain.performance.events.AssignedEnginner;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
 import co.com.sofka.domain.performance.values.*;
@@ -14,6 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -60,6 +60,7 @@ class AssignEngineerUsecaseTest {
         Assertions.assertEquals(enginnerId, event.getEngineerId());
         Assertions.assertEquals(order, event.getOrder());
         Assertions.assertEquals(personalInformation, event.getPersonalInformation());
+        Mockito.verify(repository).getEventsBy("pppp");
 
     }
     @Test
@@ -92,6 +93,7 @@ class AssignEngineerUsecaseTest {
         //Assert
         Assertions.assertEquals("An engineer is already assigned, try with 'ChangeEngineerCommand'",
                 message);
+        Mockito.verify(repository).getEventsBy("pppp");
     }
 
     private List<DomainEvent> eventPerformance() {

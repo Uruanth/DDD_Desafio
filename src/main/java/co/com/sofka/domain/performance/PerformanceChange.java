@@ -1,7 +1,7 @@
 package co.com.sofka.domain.performance;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.domain.events.*;
+import co.com.sofka.domain.performance.events.*;
 
 public class PerformanceChange extends EventChange {
     public PerformanceChange(Performance performance) {

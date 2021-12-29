@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.domain.bicycle.Bicycle;
-import co.com.sofka.domain.commands.CancelAnOrderCommand;
+import co.com.sofka.domain.bicycle.commands.CancelAnOrderCommand;
 
 public class CancelOrderUsecase extends UseCase<RequestCommand<CancelAnOrderCommand>, ResponseEvents> {
     @Override

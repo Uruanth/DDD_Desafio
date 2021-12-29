@@ -4,11 +4,8 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
-import co.com.sofka.domain.commands.AssignMechanicCommand;
+import co.com.sofka.domain.team.commands.AssignMechanicCommand;
 import co.com.sofka.domain.team.Team;
-import co.com.sofka.domain.team.values.Tool;
-
-import java.util.Set;
 
 public class AssignMechanicUsecase extends UseCase<RequestCommand<AssignMechanicCommand>, ResponseEvents> {
     @Override

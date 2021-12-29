@@ -5,7 +5,7 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.domain.bicycle.Bicycle;
-import co.com.sofka.domain.commands.CreateOrderCommand;
+import co.com.sofka.domain.bicycle.commands.CreateOrderCommand;
 
 public class CreateOrderUsecase extends UseCase<RequestCommand<CreateOrderCommand>, ResponseEvents> {
     @Override

@@ -1,7 +1,7 @@
 package co.com.sofka.domain.team;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.domain.events.*;
+import co.com.sofka.domain.team.events.*;
 
 public class TeamChange extends EventChange {
     public TeamChange(Team team) {

@@ -5,8 +5,8 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.bicycle.values.ClientId;
 import co.com.sofka.domain.bicycle.values.ContactDetail;
-import co.com.sofka.domain.commands.CreateBicycleCommand;
-import co.com.sofka.domain.events.BicycleCreated;
+import co.com.sofka.domain.bicycle.commands.CreateBicycleCommand;
+import co.com.sofka.domain.bicycle.events.BicycleCreated;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

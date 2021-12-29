@@ -1,12 +1,11 @@
 package co.com.sofka.domain.performance;
 
-import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.domain.bicycle.values.BicycleId;
 import co.com.sofka.domain.bicycle.values.ClientId;
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.events.*;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generics.PersonalInformation;
+import co.com.sofka.domain.performance.events.*;
 import co.com.sofka.domain.performance.values.*;
 
 import java.util.List;

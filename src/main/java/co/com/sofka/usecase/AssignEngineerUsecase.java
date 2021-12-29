@@ -4,8 +4,7 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
-import co.com.sofka.domain.bicycle.Bicycle;
-import co.com.sofka.domain.commands.AssignEngineerCommand;
+import co.com.sofka.domain.performance.commands.AssignEngineerCommand;
 import co.com.sofka.domain.performance.Performance;
 import co.com.sofka.domain.performance.values.PerformanceId;
 

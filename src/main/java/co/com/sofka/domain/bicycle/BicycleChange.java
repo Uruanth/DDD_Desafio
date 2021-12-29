@@ -1,9 +1,10 @@
 package co.com.sofka.domain.bicycle;
 
+import co.com.sofka.domain.bicycle.events.*;
 import co.com.sofka.domain.bicycle.values.Order;
 import co.com.sofka.domain.bicycle.values.PropertyCardId;
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.domain.events.*;
+import co.com.sofka.domain.team.events.*;
 import co.com.sofka.domain.generic.Identity;
 
 import java.util.stream.Collectors;

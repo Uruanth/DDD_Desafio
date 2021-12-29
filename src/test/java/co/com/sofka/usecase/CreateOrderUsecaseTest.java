@@ -4,11 +4,9 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.domain.bicycle.Bicycle;
 import co.com.sofka.domain.bicycle.values.*;
-import co.com.sofka.domain.commands.CreateOrderCommand;
-import co.com.sofka.domain.events.BicycleCreated;
-import co.com.sofka.domain.events.CreatedOrder;
+import co.com.sofka.domain.bicycle.commands.CreateOrderCommand;
+import co.com.sofka.domain.bicycle.events.CreatedOrder;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,9 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static co.com.sofka.utils.Aggregates.ASSIGN_PERFORMANCE;
 import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

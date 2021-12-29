@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
-import co.com.sofka.domain.commands.AssignPainterCommand;
+import co.com.sofka.domain.team.commands.AssignPainterCommand;
 import co.com.sofka.domain.team.Team;
 
 public class AssignPainterUsecase extends UseCase<RequestCommand<AssignPainterCommand>, ResponseEvents> {

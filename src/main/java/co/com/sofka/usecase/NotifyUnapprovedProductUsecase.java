@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
-import co.com.sofka.domain.events.UnapprovedProduct;
+import co.com.sofka.domain.performance.events.UnapprovedProduct;
 import co.com.sofka.services.GetEmailService;
 import co.com.sofka.services.SendEmailService;
 

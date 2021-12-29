@@ -5,8 +5,8 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.bicycle.values.BicycleId;
-import co.com.sofka.domain.commands.AssignTeamCommand;
-import co.com.sofka.domain.events.AssignedTeam;
+import co.com.sofka.domain.bicycle.commands.AssignTeamCommand;
+import co.com.sofka.domain.bicycle.events.AssignedTeam;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.team.values.TeamId;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,6 @@ import java.util.List;
 
 import static co.com.sofka.utils.Aggregates.ASSIGN_TEAM;
 import static co.com.sofka.utils.Aggregates.NEW_BICYCLE;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
